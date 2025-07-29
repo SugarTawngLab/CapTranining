@@ -6,4 +6,4 @@ view Last3CallOffs as
     select *
     from cnma.CallOffLines
     order by callOffLine asc, callOffId desc
-    limit 3
+    limit 3;

@@ -1,0 +1,4 @@
+ID;request_ID;approver_ID;comment;sequence;status;createdAt;createdBy;modifiedAt;modifiedBy
+g6f6g800-0001-4000-9000-aabbccddeeff;f5e5f700-0001-4000-9000-aabbccddeeff;c2b2c400-0001-4000-9000-aabbccddeeff;Looks good;1;20;2025-07-25T10:00:00Z;admin@example.com;2025-07-26T08:00:00Z;admin@example.com
+g6f6g800-0002-4000-9000-aabbccddeeff;f5e5f700-0001-4000-9000-aabbccddeeff;c2b2c400-0002-4000-9000-aabbccddeeff;Pending;2;10;2025-07-25T10:05:00Z;admin@example.com;2025-07-26T08:10:00Z;admin@example.com
+g6f6g800-0003-4000-9000-aabbccddeeff;f5e5f700-0002-4000-9000-aabbccddeeff;c2b2c400-0003-4000-9000-aabbccddeeff;Approved by default;1;20;2025-07-25T11:00:00Z;admin@example.com;2025-07-26T09:00:00Z;admin@example.com

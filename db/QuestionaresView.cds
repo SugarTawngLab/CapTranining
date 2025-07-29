@@ -64,4 +64,4 @@ view Questionnaires_View as
     from cnma.Questionnaires as QN
     inner join LatestVersions as LV
         on  QN.questionnaireNo = LV.questionnaireNo
-        and QN.version         = LV.version
+        and QN.version         = LV.version;

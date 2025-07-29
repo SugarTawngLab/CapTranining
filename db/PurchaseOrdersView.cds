@@ -15,32 +15,65 @@ view ContactPersonValueHelp as
 
 // Requirement 5
 
+// view LatestPurchaseOrderItems as
+//     select
+//         poi.ID                as purchaseOrderItemId,
+//         poi.purchaseOrder.ID  as purchaseOrderId,
+//         po.purchaseOrder      as purchaseOrderNumber,
+//         po.version            as purchaseOrderVersion,
+//         poi.purchaseOrderItem as purchaseOrderItemNumber,
+//         po.status             as purchaseOrderStatus,
+
+//         cast(
+//             poi.address.ID != poi.plantAddress.ID as Boolean
+//         )                     as differentAddressIndicator,
+
+//         cast(
+//             poi.nextDeliveryDate <= current_date as Boolean
+//         )                     as expiredIndicator
+
+//     from cnma.PurchaseOrderItems as poi
+//     inner join cnma.PurchaseOrders as po
+//         on po.ID = poi.purchaseOrder.ID
+//     where
+//         not exists(
+//             select from cnma.PurchaseOrders as po2
+//             where
+//                     po2.purchaseOrder = po.purchaseOrder
+//                 and po2.version       > po.version
+//         )
+//     order by
+//         poi.nextDeliveryDate desc;
+
+
 view LatestPurchaseOrderItems as
     select
-        poi.ID                as purchaseOrderItemId,
+        poi.ID                 as purchaseOrderItemId,
         poi.purchaseOrder.ID  as purchaseOrderId,
         po.purchaseOrder      as purchaseOrderNumber,
         po.version            as purchaseOrderVersion,
         poi.purchaseOrderItem as purchaseOrderItemNumber,
         po.status             as purchaseOrderStatus,
 
-        cast(
-            poi.address.ID != poi.plantAddress.ID as Boolean
-        )                     as differentAddressIndicator,
+        case
+            when poi.address.ID != poi.plantAddress.ID then true
+            else false
+        end                    as differentAddressIndicator,
 
-        cast(
-            poi.nextDeliveryDate <= current_date as Boolean
-        )                     as expiredIndicator
+        case
+            when poi.nextDeliveryDate <= current_date then true
+            else false
+        end                    as expiredIndicator
 
     from cnma.PurchaseOrderItems as poi
     inner join cnma.PurchaseOrders as po
         on po.ID = poi.purchaseOrder.ID
     where
-        not exists(
+        not exists (
             select from cnma.PurchaseOrders as po2
             where
-                    po2.purchaseOrder = po.purchaseOrder
-                and po2.version       > po.version
+                po2.purchaseOrder = po.purchaseOrder
+                and po2.version   > po.version
         )
     order by
         poi.nextDeliveryDate desc;

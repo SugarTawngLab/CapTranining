@@ -1,0 +1,54 @@
+@baseUrl = http://localhost:8080/odata/v4/cnma/FLEXIBLEREQUEST_SRV
+
+### Get all Flexible Requests
+GET {{baseUrl}}/FlexibleRequests
+Accept: application/json
+
+### Get all Request Comments
+GET {{baseUrl}}/RequestComments
+Accept: application/json
+
+### Get all Request Approvers
+GET {{baseUrl}}/RequestApprovers
+Accept: application/json
+
+### Get all Requesters
+GET {{baseUrl}}/Requester
+Accept: application/json
+
+### Get all Approvers
+GET {{baseUrl}}/Approvers
+Accept: application/json
+
+### Get all Group Approvers
+GET {{baseUrl}}/GroupApprovers
+Accept: application/json
+
+### Get all Approver Templates
+GET {{baseUrl}}/ApproverTemplate
+Accept: application/json
+
+### Clone Flexible Request
+POST {{baseUrl}}/cloneFlexibleRequest
+Content-Type: application/json
+
+{
+  "FR_ID": "f5e5f700-0001-4000-9000-aabbccddeeff"
+}
+
+
+### Approve Flexible Request
+POST {{baseUrl}}/approveFlexibleRequest
+Content-Type: application/json
+
+{
+  "FR_ID": "f5e5f700-0002-4000-9000-aabbccddeeff"
+}
+
+### Reject Flexible Request
+POST {{baseUrl}}/rejectFlexibleRequest
+Content-Type: application/json
+
+{
+  "FR_ID": "f5e5f700-0002-4000-9000-aabbccddeeff"
+}
