@@ -31,6 +31,7 @@ import javax.sound.midi.MidiDevice.Info;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import static com.sap.cds.ResultBuilder.selectedRows;
 import lombok.extern.slf4j.Slf4j;
 import cds.gen.flexiblerequestsservice.ApproveFlexibleRequestContext;
 import cds.gen.flexiblerequestsservice.CloneFlexibleRequestContext;
@@ -39,7 +40,7 @@ import cds.gen.flexiblerequestsservice.FlexibleRequestsService_;
 import cds.gen.flexiblerequestsservice.FlexibleRequests_;
 import cds.gen.flexiblerequestsservice.RejectFlexibleRequestContext;
 
-import static com.sap.cds.ResultBuilder.selectedRows;
+
 
 @Slf4j
 @Component

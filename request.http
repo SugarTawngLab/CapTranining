@@ -1,4 +1,5 @@
 @baseUrl = http://localhost:8080/odata/v4/cnma/FLEXIBLEREQUEST_SRV
+@baseUrl2 = http://localhost:8080/odata/v4/cnma/QUESTIONARE_SRV
 
 ### Get all Flexible Requests
 GET {{baseUrl}}/FlexibleRequests
@@ -51,4 +52,43 @@ Content-Type: application/json
 
 {
   "FR_ID": "f5e5f700-0002-4000-9000-aabbccddeeff"
+}
+
+
+###Get All Questionare
+GET {{baseUrl2}}/Questionnaires(8d9fca12-1d2b-4cde-bd2a-abc123ef4567)
+
+
+###Create Questionare from Template
+POST {{baseUrl2}}/createFromTemplate
+Content-Type: application/json
+
+{
+  "TempID": "8d9fca12-1d2b-4cde-bd2a-abc123ef4567"
+}
+
+
+###Copy a question from existing one
+POST {{baseUrl2}}/copyQuestion
+Content-Type: application/json
+
+{
+  "QuestionId": "8d9fca12-1d2b-4cde-bd2a-abc123ef4567"
+}
+
+###Submit a questionnaire
+POST {{baseUrl2}}/submitQuestionnaire
+Content-Type: application/json
+
+{
+  "QuestionId": "8d9fca12-1d2b-4cde-bd2a-abc123ef4567"
+}
+
+###Implement an action for Questionnaire to set statuses: In progress / In Approval / Active / Inactive / Obsolete
+POST {{baseUrl2}}/setQuestionnaireStatus
+Content-Type: application/json
+
+{
+  "QuestionId": "8d9fca12-1d2b-4cde-bd2a-abc123ef4567",
+  "Status": 100
 }
